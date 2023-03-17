@@ -124,7 +124,7 @@ public class Tests extends BaseDriver {
 
         Assert.assertTrue(elements.addToCartMessage.getText().contains("The product has been added to your shopping cart"),"Alışveriş Tamamlanamadı");
     }
-    @Test
+    @Test(priority = 6)
     void Test6(){
 
         Locatorlar elements = new Locatorlar();
@@ -140,6 +140,14 @@ public class Tests extends BaseDriver {
         elements.addToCartforDesktops.click();
 
         Assert.assertTrue(elements.addToCartMessage.getText().contains("The product has been added to your shopping cart"),"Alışveriş Tamamlanamadı");
+
+    }
+    @Test(priority = 7)
+    void Test7(){
+        Locatorlar elements = new Locatorlar();
+        elements.search.sendKeys("Adobe Photoshop CS4");
+        elements.searchButton.click();
+        Assert.assertTrue(elements.photoshopc4.getText().contains("Adobe Photoshop CS4"),"Ürün Bulunamadı");
 
     }
 }

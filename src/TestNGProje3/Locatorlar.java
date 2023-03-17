@@ -100,4 +100,12 @@ public class Locatorlar {
     @FindBy(xpath = "//*[@id='add-to-cart-button-1']")
     public  WebElement addToCartforDesktops;
 
+    @FindBy(xpath = "//*[@placeholder='Search store']")
+    public WebElement search;
+    @FindBy(xpath = "//button[text()='Search']")
+    public WebElement searchButton;
+
+    @FindBy(xpath = "//*[text()='Adobe Photoshop CS4']")
+    public WebElement photoshopc4;
+
 }
