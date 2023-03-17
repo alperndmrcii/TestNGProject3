@@ -106,7 +106,7 @@ public class Tests extends BaseDriver {
         }
     }
 
-    @Test
+    @Test(priority = 5)
     void Test5() {
 
         Locatorlar elements = new Locatorlar();
