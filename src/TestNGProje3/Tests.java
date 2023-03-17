@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -130,7 +131,8 @@ public class Tests extends BaseDriver {
         Locatorlar elements = new Locatorlar();
         Actions aksiyonlar=new Actions(driver);
         aksiyonlar.moveToElement(elements.computers).build().perform();
-        aksiyonlar.moveToElement(elements.desktops).click().build().perform();
+        wait.until(ExpectedConditions.visibilityOf(elements.desktops));
+        elements.desktops.click();
         elements.buildYourOwnComputer.click();
         int randomtamsayi= ((int) (Math.random()*3))+1;
         Select randomRam=new Select(elements.rams);
@@ -138,14 +140,14 @@ public class Tests extends BaseDriver {
         int randomtamsayi2= ((int) (Math.random()*2)+1);
         elements.hdd.get(randomtamsayi2).click();
         elements.addToCartforDesktops.click();
-
         Assert.assertTrue(elements.addToCartMessage.getText().contains("The product has been added to your shopping cart"),"Alışveriş Tamamlanamadı");
 
     }
     @Test(priority = 7)
-    void Test7(){
+    @Parameters("Adobe")
+    void Test7(String text){
         Locatorlar elements = new Locatorlar();
-        elements.search.sendKeys("Adobe Photoshop CS4");
+        elements.search.sendKeys(text);
         elements.searchButton.click();
         Assert.assertTrue(elements.photoshopc4.getText().contains("Adobe Photoshop CS4"),"Ürün Bulunamadı");
 

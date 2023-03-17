@@ -1,0 +1,14 @@
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="Test7">
+        <classes>
+            <class name="TestNGProje3.Tests">
+                <methods>
+                    <parameter name="Adobe" value="Adobe Photoshop CS4"></parameter>
+                    <include name="Test7"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
