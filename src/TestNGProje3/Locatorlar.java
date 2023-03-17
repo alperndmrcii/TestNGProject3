@@ -44,5 +44,15 @@ public class Locatorlar {
     @FindBy(xpath = "//*[text()='Your registration completed']")
     public WebElement registerComplete;
 
+    @FindBy(xpath = "//*[text()='Log in']")
+    public WebElement logInBtn;
+
+    @FindBy(xpath = "//*[@class='button-1 login-button']")
+    public WebElement sonLogInButton;
+
+    @FindBy(xpath = "//*[text()='Log out']")
+    public WebElement logOutBtn;
+
+
 
 }
