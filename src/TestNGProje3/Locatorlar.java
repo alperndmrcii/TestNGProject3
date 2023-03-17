@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class Locatorlar {
 
     public Locatorlar() {
@@ -52,6 +54,9 @@ public class Locatorlar {
 
     @FindBy(xpath = "//*[text()='Log out']")
     public WebElement logOutBtn;
+
+    @FindBy(xpath = "//*[@class='message-error validation-summary-errors']")
+    public List<WebElement>loginFailMessage;
 
 
 
