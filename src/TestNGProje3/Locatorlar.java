@@ -56,8 +56,11 @@ public class Locatorlar {
     public WebElement logOutBtn;
 
     @FindBy(xpath = "//*[@class='message-error validation-summary-errors']")
-    public List<WebElement>loginFailMessage;
+    public List<WebElement> loginFailMessage;
 
+
+    @FindBy(xpath = "//*[@class='top-menu notmobile']/li")
+    public List<WebElement> tabMenu;
 
 
 }

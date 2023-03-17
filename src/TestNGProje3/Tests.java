@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -60,7 +62,7 @@ public class Tests extends BaseDriver {
     @Test(priority = 3, dataProvider = "datalarim")
     void Test3(String mail, String password) {
         Locatorlar elements = new Locatorlar();
-       // wait.until(ExpectedConditions.urlToBe("https://demo.nopcommerce.com/"));
+        // wait.until(ExpectedConditions.urlToBe("https://demo.nopcommerce.com/"));
         elements.logInBtn.click();
         elements.eMail.sendKeys(mail);
         elements.password.sendKeys(password);
@@ -90,5 +92,15 @@ public class Tests extends BaseDriver {
                 {"alperen1@gmail.com", "asdasdasd"}};
 
         return data;
+    }
+
+    @Test
+    void Test4() {
+        Locatorlar elements = new Locatorlar();
+
+        List<String> tabMenuIsimler = new ArrayList<>(Arrays.asList("Computers, Electronics, Apparel, Digital downloads, Books, Jewelry, Gift Cards"));
+        for (int i = 0; i < tabMenuIsimler.size(); i++) {
+            Assert.assertTrue(tabMenuIsimler.get(i).contains(elements.tabMenu.get(i).getText()));
+        }
     }
 }
