@@ -5,7 +5,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -27,18 +26,16 @@ public class BaseDriver {
    public void baslangicIslemler(){
         Logger logger= Logger.getLogger("");
         logger.setLevel(Level.SEVERE);
-        //System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
-        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "/dev/null");
-        driver = new FirefoxDriver();
-       // ChromeOptions options = new ChromeOptions();
-       // options.addArguments("--remote-allow-origins=*");
-       //driver = new ChromeDriver(options);
-       //driver.manage().window().maximize();
+        System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY,"true");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        driver.manage().window().maximize();
         Duration dr=Duration.ofSeconds(30);
         driver.manage().timeouts().pageLoadTimeout(dr);
         driver.manage().timeouts().implicitlyWait(dr);
         wait=new WebDriverWait(driver,Duration.ofSeconds(30));
-        driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
+        driver.get("https://demo.nopcommerce.com/");
 
 
     }

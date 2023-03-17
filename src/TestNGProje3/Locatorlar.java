@@ -11,35 +11,38 @@ public class Locatorlar {
         PageFactory.initElements(BaseDriver.driver, this);
     }
 
-        @FindBy(xpath = "//a[text()='Register']")
-        public WebElement register;
+    @FindBy(xpath = "//a[text()='Register']")
+    public WebElement register;
 
-        @FindBy(id = "id='FirstName'")
-        public WebElement firstName;
+    @FindBy(xpath = "//*[@id='FirstName']")
+    public WebElement firstName;
 
-        @FindBy(id = "'LastName'")
-        public WebElement lastName;
+    @FindBy(xpath = "//*[@id='LastName']")
+    public WebElement lastName;
 
-        @FindBy(xpath = "//select[@name='DateOfBirthDay']")
-        public WebElement birthday;
+    @FindBy(xpath = "//select[@name='DateOfBirthDay']")
+    public WebElement birthday;
 
-        @FindBy(xpath = "//select[@name='DateOfBirthMonth']")
-        public WebElement birthMonth;
+    @FindBy(xpath = "//select[@name='DateOfBirthMonth']")
+    public WebElement birthMonth;
 
-        @FindBy(xpath = "//select[@name='DateOfBirthYear']")
-        public WebElement birthYear;
+    @FindBy(xpath = "//select[@name='DateOfBirthYear']")
+    public WebElement birthYear;
 
-        @FindBy(xpath = "//input[@id='Email']")
-        public WebElement eMail;
+    @FindBy(xpath = "//input[@id='Email']")
+    public WebElement eMail;
 
-        @FindBy(xpath = "//input[@id='Password']")
-        public WebElement password;
+    @FindBy(xpath = "//input[@id='Password']")
+    public WebElement password;
 
-        @FindBy(xpath = "//input[@id='ConfirmPassword']")
-        public WebElement confirmPassword;
+    @FindBy(xpath = "//input[@id='ConfirmPassword']")
+    public WebElement confirmPassword;
 
-        @FindBy(xpath = "//button[@id='register-button']")
-        public WebElement registerBtn;
+    @FindBy(xpath = "//button[@id='register-button']")
+    public WebElement registerBtn;
+
+    @FindBy(xpath = "//*[text()='Your registration completed']")
+    public WebElement registerComplete;
 
 
 }
