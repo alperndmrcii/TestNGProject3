@@ -82,4 +82,22 @@ public class Locatorlar {
     @FindBy(xpath = "//p[@class='content']")
     public WebElement addToCartMessage;
 
+    @FindBy(xpath = "//*[text()='Computers ']")
+    public WebElement computers;
+
+    @FindBy(xpath = "//*[text()='Desktops ']")
+    public WebElement desktops;
+
+    @FindBy(xpath = "//*[text()='Build your own computer']")
+    public WebElement buildYourOwnComputer;
+
+    @FindBy(xpath = "//*[@id='product_attribute_2']")
+    public WebElement rams;
+
+    @FindBy(xpath = "//input[@type='radio' and @name='product_attribute_3']")
+    public List<WebElement> hdd;
+
+    @FindBy(xpath = "//*[@id='add-to-cart-button-1']")
+    public  WebElement addToCartforDesktops;
+
 }

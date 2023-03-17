@@ -124,4 +124,22 @@ public class Tests extends BaseDriver {
 
         Assert.assertTrue(elements.addToCartMessage.getText().contains("The product has been added to your shopping cart"),"Alışveriş Tamamlanamadı");
     }
+    @Test
+    void Test6(){
+
+        Locatorlar elements = new Locatorlar();
+        Actions aksiyonlar=new Actions(driver);
+        aksiyonlar.moveToElement(elements.computers).build().perform();
+        aksiyonlar.moveToElement(elements.desktops).click().build().perform();
+        elements.buildYourOwnComputer.click();
+        int randomtamsayi= ((int) (Math.random()*3))+1;
+        Select randomRam=new Select(elements.rams);
+        randomRam.selectByIndex(randomtamsayi);
+        int randomtamsayi2= ((int) (Math.random()*2)+1);
+        elements.hdd.get(randomtamsayi2).click();
+        elements.addToCartforDesktops.click();
+
+        Assert.assertTrue(elements.addToCartMessage.getText().contains("The product has been added to your shopping cart"),"Alışveriş Tamamlanamadı");
+
+    }
 }
