@@ -4,7 +4,9 @@ import Utility.BaseDriver;
 import Utility.Tools;
 import net.bytebuddy.utility.RandomString;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.idealized.Javascript;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -94,7 +96,7 @@ public class Tests extends BaseDriver {
         return data;
     }
 
-    @Test
+    @Test(priority = 4)
     void Test4() {
         Locatorlar elements = new Locatorlar();
 
@@ -102,5 +104,24 @@ public class Tests extends BaseDriver {
         for (int i = 0; i < tabMenuIsimler.size(); i++) {
             Assert.assertTrue(tabMenuIsimler.get(i).contains(elements.tabMenu.get(i).getText()));
         }
+    }
+
+    @Test
+    void Test5() {
+
+        Locatorlar elements = new Locatorlar();
+        elements.gifts.click();
+        wait.until(ExpectedConditions.urlToBe("https://demo.nopcommerce.com/gift-cards"));
+        int randomtamsayi= ((int) (Math.random()*2))+1;
+        elements.physicalGifts.get(randomtamsayi).click();
+        wait.until(ExpectedConditions.visibilityOf(elements.recipientsName));
+        JavascriptExecutor js=(JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", elements.recipientsName);
+        elements.recipientsName.sendKeys("Abdul");
+        elements.yourName.sendKeys("alperen");
+        elements.msg.sendKeys("Güle güle kullan");
+        elements.addToCartBtn.click();
+
+        Assert.assertTrue(elements.addToCartMessage.getText().contains("The product has been added to your shopping cart"),"Alışveriş Tamamlanamadı");
     }
 }

@@ -62,5 +62,24 @@ public class Locatorlar {
     @FindBy(xpath = "//*[@class='top-menu notmobile']/li")
     public List<WebElement> tabMenu;
 
+    @FindBy(xpath = "//*[@class='top-menu notmobile']/li[7]")
+    public WebElement gifts;
+
+    @FindBy(xpath = "//*[@id='giftcard_44_RecipientName']")
+    public WebElement recipientsName;
+
+    @FindBy(xpath = "//*[@id='giftcard_44_SenderName']")
+    public WebElement yourName;
+
+    @FindBy(xpath = "//*[@id='giftcard_44_Message']")
+    public WebElement msg;
+
+    @FindBy(xpath = "//*[@class='button-2 product-box-add-to-cart-button']")
+    public List<WebElement> physicalGifts;
+    @FindBy(xpath = "//*[@class='button-1 add-to-cart-button']")
+    public WebElement addToCartBtn;
+
+    @FindBy(xpath = "//p[@class='content']")
+    public WebElement addToCartMessage;
 
 }
