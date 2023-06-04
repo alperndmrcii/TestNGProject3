@@ -29,7 +29,6 @@ public class Tests extends BaseDriver {
     @Test(priority = 1)
     void Test1() {
 
-
         Locatorlar elements = new Locatorlar();
         elements.register.click();
         elements.firstName.sendKeys("Alperen");
